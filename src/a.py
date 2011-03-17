@@ -1,7 +1,7 @@
 from tools import *
 import math
 
-rawfile=stripnumber(open('xx.txt','r').read().strip().lower().replace('|',' '))
+rawfile=stripnumber(open('test_data/xx.txt','r').read().strip().lower().replace('|',' '))
 wordlist = cutter.findall(rawfile)
 
 ### wordfreq is the count of each word ###
