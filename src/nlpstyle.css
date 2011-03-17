@@ -1,0 +1,17 @@
+.sentence{
+	display:block;
+	clear:both;
+	border-top:1px solid #cccccc;
+	border-bottom:3px solid #000;
+	background-image:url(line.png);
+	margin:2px;
+	width:8000px;
+}
+.word{
+	display:block;
+	margin:0 4px;
+	float:left;
+}
+.sentence_end{
+	clear:both;
+}
