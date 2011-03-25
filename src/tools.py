@@ -31,7 +31,12 @@ def countandsort(x):
 def generatepair(x, t):
 	if len(x) - t < 1:
 		return []
-	return map(lambda a: ' '.join(a), zip(x[:-t],x[t:]))
+	return map(lambda a: ' '.join(a), zip(x[:-t], x[t:]))
+
+def generatereversedpair(x, t):
+	if len(x) - t < 1:
+		return []
+	return map(lambda a: ' '.join(a), zip(x[t:], x[:-t]))
 
 def generatengram(x, n):
 	if len(x) < n:
