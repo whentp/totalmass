@@ -2,20 +2,18 @@ from tools import *
 import math
 import nlphtml
 
-rawfile=stripnumber(open('xx.txt','r').read().strip().lower().replace('|',' '))
-wordlist = cutter.findall(rawfile)
+rawtext=loadrawtextfile('xx.txt')
+wordlist = getwordlist(rawtext)
 
 ### wordfreq is the count of each word ###
 wordfreq = countwords(wordlist,1);
 
 topword = wordfreq.items();
-topword.sort(lambda x,y:y[1]-x[1]);
-#rintpairs(topword[:50])
-#ppppp()
+topword.sort(valuedesc);
 
 curve = lambda x: 1.0/x
 
-sentencelist = filter(lambda y:len(y)>0, map(lambda x: cutter.findall(x), spliter.split(rawfile)))
+sentencelist = getsentencelist(rawtext)
 #print sentencelist[:10]
 #ppppp()
 

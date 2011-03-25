@@ -60,3 +60,17 @@ def printpairs(x):
 
 def ppppp():
 	print '=' * 30
+
+def loadrawtextfile(filename):
+	"""
+	This function replace all numbers to nn and strip all "|" 
+	"""
+	return stripnumber(open(filename,'r').read().strip().lower().replace('|',' '))
+
+def getwordlist(tmpstr):
+	return cutter.findall(tmpstr)
+
+def getsentencelist(tmpfile):
+	return filter(lambda y:len(y)>0, map(lambda x: cutter.findall(x), spliter.split(tmpfile)))
+
+valuedesc = lambda x,y:y[1]-x[1]
