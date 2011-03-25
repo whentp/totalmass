@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 from tools import *
 import math
 import nlphtml
@@ -16,8 +15,6 @@ topword.sort(valuedesc);
 curve = lambda x: 1.0/x
 
 sentencelist = getsentencelist(rawtext)
-#print sentencelist[:10]
-#ppppp()
 
 def getweight(x, wordfreq):
 	tmp = map(lambda y:(y,wordfreq[y]), x)
@@ -29,20 +26,10 @@ def getweight(x, wordfreq):
 
 weightedsentencelist = map(lambda x: getweight(x, wordfreq), sentencelist)
 
-sb = nlphtml.htmlstep()
-for x in weightedsentencelist[:500]:
-	sb.addsentence(x)
-
-print sb.out()
-
-exit()
-
-#maxlen = max(map(lambda x: len(x), sentencelist))
-
 result = {}
-for cc in range(20, 0, -1):
+for cc in range(10, 0, -1):
 	for x in sentencelist:
-		preserve_countwords(generatepair(x, cc), result, math.exp(- ((cc-1)**2) /2))
+		preserve_countwords(generatepair(x, cc), result, math.exp(- ((cc)**2) /2))
 	
 pairfreq = filtersingle(result.items(),1)
 

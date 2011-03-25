@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 class htmlstep:
 	def __init__(self):
 		self.sentences = []
@@ -15,7 +17,7 @@ class htmlstep:
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" href="nlpstyle.css" />
+		<link rel="stylesheet" href="data/nlpstyle.css" />
 	</head>
 	<body>""" + ''.join(self.sentences) +"</body></html>"
 
