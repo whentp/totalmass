@@ -78,4 +78,18 @@ def getwordlist(tmpstr):
 def getsentencelist(tmpfile):
 	return filter(lambda y:len(y)>0, map(lambda x: cutter.findall(x), spliter.split(tmpfile)))
 
+def splitpairwithvalue(pairlist):
+	"""
+	[['a|b',5.5], ...] -> {'a':{'b':5.5, ...}, ...}
+	"""
+	result = {}
+	for a in pairlist:
+		tmp = a[0].split(' ')
+		if tmp[0] in result:
+			result[tmp[0]][tmp[1]] = a[1]
+		else:
+			result[tmp[0]] = {tmp[1]:a[1]}
+	return result
+
 valuedesc = lambda x,y:y[1]-x[1]
+
