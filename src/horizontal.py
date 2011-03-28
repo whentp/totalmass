@@ -60,7 +60,7 @@ word_horizon = []
 
 print "step5"
 
-method = 2
+method = 1
 
 if method == 1:
 	for word1, tmp in p_forward.items():
