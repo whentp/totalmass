@@ -91,6 +91,52 @@ def splitpairwithvalue(pairlist):
 			result[tmp[0]] = {tmp[1]:a[1]}
 	return result
 
+###################################################
+#
+# The following three functions are for intimacy.
+#
+###################################################
+
+def addpairwithvalue(sentence, step, value, result):
+	"""
+	@sentence: 	[a,b,c,d]
+	@step: 		offset between two words
+	@value: 	the weight
+	@result: 	the final dict
+	"""
+	for index in xrange(len(sentence) - step):
+		word1 = sentence[index]
+		word2 = sentence[index+step]
+		if not (word1 in result):
+			result[word1] = {}
+		if not(word2 in result[word1]):
+			result[word1][word2] = value
+		else:
+			result[word1][word2] += value
+
+def addreversedpairwithvalue(sentence, step, value, result):
+	"""
+	@sentence: 	[a,b,c,d]
+	@step: 		offset between two words
+	@value: 	the weight
+	@result: 	the final dict
+	"""
+	for index in xrange(len(sentence) - step):
+		word2 = sentence[index]
+		word1 = sentence[index+step]
+		if not (word1 in result):
+			result[word1] = {}
+		if not(word2 in result[word1]):
+			result[word1][word2] = value
+		else:
+			result[word1][word2] += value
+
+def getpairwithprobability(result, wordfreq):
+	for k, tmp in result.items():
+		factor = 1.0 / wordfreq[k]
+		for kk, vv in tmp.items():
+			result[k][kk] = vv * factor
+
 valuedesc = lambda x,y:y[1]-x[1]
 
 def printdict(d):
