@@ -93,3 +93,6 @@ def splitpairwithvalue(pairlist):
 
 valuedesc = lambda x,y:y[1]-x[1]
 
+def printdict(d):
+	for k,v in d.items():
+		print k, '->', v
