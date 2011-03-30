@@ -2,6 +2,7 @@ from tools 	import *
 from intimacy 	import *
 from horizontal import *
 from verticle 	import *
+from intimacy 	import *
 from math 	import *
 
 wordfreq = loadandeval('wordfreq.lib')
@@ -19,7 +20,11 @@ filenames = {
 		'5.txt': 1,
 		'6.txt': 1,
 		'7.txt': 1,
-		'network.txt': 2}
+		'network.txt': 2,
+		'ni1.txt': 3,
+		'ni2.txt': 3,
+		'ni3.txt': 3
+		}
 
 # read files
 files = []
@@ -37,6 +42,7 @@ for filename, tag in filenames.items():
 
 print len(files)
 ppppp()
+
 for f in files:
 	t =  filter(lambda x: x[0] in topwords, getverticle(f['sentences'], wordfreq).items())
 	m_v = sum(map(lambda x: x[1], t)) / len(t)
@@ -49,4 +55,7 @@ for f in files:
 				gethorizontalposition(result).items()))
 	m_h = sum(res) / len(res)
 
-	print m_h, ' ', m_v, ' ', f['tag'], ';'
+	t = getintimacy(f['sentences'], wordfreq).items()
+	m_i = sum(map(lambda x: x[1], t)) / len(t)
+	
+	print m_h, ' ', m_v, ' ', m_i, ' ',  f['tag'], ';'

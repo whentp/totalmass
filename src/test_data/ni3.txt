@@ -1,0 +1,78 @@
+a particular state in respect of the states of being a merchant.9 Second, the fact that
+nationality does not play a role in determining the applicability of the CISG is
+an advantage with regard to the use of the CISG since it releases parties from an
+inquiry into the nationality of the other contracting party or parties, and in particular
+from the sometimes difficult question of the nationality of a legal person.10
+The following discussion on the UCC rules in regard to ¡°who is a merchant¡±
+illustrates the sometimes rather difficult inquiry into this issue: under the UCC
+merchants are professionals in business. The professional status may be based
+upon specialised knowledge of the goods, specialised knowledge of business prac-
+tices, or both.
+The UCC distinguishes between two types of merchants. First, under ¡ì 2-314
+UCC a merchant is considered to be someone selling a specific good and having
+special knowledge about it. Secondly, a more relaxed type of merchant is envis-
+aged by ¡ì 2-201(2), ¡ì 2-207, ¡ì 2-209 UCC which covers nearly everyone in busi-
+ness. Therefore, practically most sales of goods will be conducted by a merchant
+under the UCC.11
+
+The above mentioned requirements will mean that for the most part,
+tribunals which have to decide upon its application to a particular matter will be in
+one of the member states to the CISG and the CISG, in turn, will be one of the
+laws which belongs to the natural realm of the tribunal.
+However, the CISG can also be applied by a court of a non-member state. Take
+for example, a scenario where the parties¡¯ places of business are in different mem-
+ber states but the dispute comes before a tribunal in a non-member state12 and
+the private international law of the tribunal in the non-member state leads to the
+application of the law of a member state to the CISG. In such a case, the tribunal
+or court will have to apply the CISG as the tribunal or court of the member-state
+would do.The reason for referring to the law of a CISG member state through the
+application of the forum state¡¯s private international law rules is irrelevant:
+whether the law of a member state is applicable because the contract has its most
+significant relationship15 in that state or because of the parties¡¯ express or implied
+choice is not important. However, if the parties choose the law of a CISG member
+state, an issue sometimes arises as to whether the parties chose the law of that state
+in toto, or only the domestic sale of goods law and thereby intended to exclude the
+application of the CISG as permitted by Article 6 CISG. The question of whether
+a general reference to national law includes a reference to the CISG is disputed in
+the case law and academic writing.16 In the authors¡¯ view, unless the parties have
+expressly referred to the domestic sales law of a state the reference to the national
+law of a member state either through private international law or by the choice of
+the parties includes the CISG.17 In each individual circumstance, the intention of
+the parties should be considered by applying Article 8 CISG.18
+Some authors are of the opinion that the reference to the national law of a
+member state must be read as excluding a reference to the CISG if Article 1(1)(a)
+is applicable (if, say, both parties have their seats in member states) because
+otherwise the parties¡¯ express choice of law could be rendered meaningless.19
+The reference to the law of a member state can result in the application of
+the CISG even if the parties are from different states but neither of the parties
+has its seat in a member state. This scenario, anticipated in Article 1(1)(b) CISG,
+has been a concern since the parties are subjected to a sale of goods law, namely
+the CISG, which is not applicable to either of the parties as part of its national
+law. Article 1(1)(b) CISG was, therefore, very controversial during its drafting
+in Vienna.21 However, Article 1(1)(b) CISG is justifiable in that it is easier for a
+judge to apply the CISG, which is easily accessible, is printed in many languages
+(six official languages and 13 unofficial languages), and has been subjected to
+jurisprudential and academic analysis on the world stage. The alternative is for a
+judge to have to apply a national law which might be inaccessible for him or her
+and in his or her view very obscure. This is also true for the parties. Even if the
+applicability of the CISG comes as a surprise to the parties, the CISG devises a
+legal paradigm for specific problems arising out of cross-border sales of goods
+contracts often more modern than a domestic sale of goods law. But importantly, the
+advantage of the domestic sale of goods law can only ever be afforded to one party
+whereas the CISG is more advantageous because it is ¡°neutral¡± as between the parties.The reservations against and disagreements with regard to Article 1(1)(b)
+CISG resulted in the adoption of Article 95 CISG which allows member states to
+implement the CISG without being bound by Article 1(1)(b) CISG (¡°will not be
+bound by¡±).24 Therefore, when considering the application of the CISG, one has to
+keep in mind that member states, member states with an Article 95 CISG reser-
+vation, and non-member states exist side-by-side. If the CISG is only applicable
+because of private international law rules, confusing situations can occur.25 How-
+ever, as discussed above,26 the function of Article 1(1)(b) CISG should be under-
+stood as being one of distributing the contract law of the member states: where a
+member state, because of an Article 95 CISG reservation, has made Article 1(1)(b)
+CISG inapplicable, then the member state signals that it wants, when private inter-
+national law rules refer to its law, not that the CISG applies, but rather its domestic
+sale of contract law applies. In such a case, the CISG can only be applied if the
+requirements for the application of Article 1(1)(a) CISG are met (that is, both parties
+have their places of business in a member state). The decision of a national legislature
+in a ¡°reservation member state¡± has to be respected even if it is a foreign court 27
+whose private international law rules lead to the law of a reservation member state.
