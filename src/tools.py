@@ -133,9 +133,17 @@ def addreversedpairwithvalue(sentence, step, value, result):
 
 def getpairwithprobability(result, wordfreq):
 	for k, tmp in result.items():
-		factor = 1.0 / wordfreq[k]
+		factor = 1.0 / getwordfreq(wordfreq, k)
 		for kk, vv in tmp.items():
 			result[k][kk] = vv * factor
+
+def getwordfreq(wordfreq, key):
+	return wordfreq[key] if key in wordfreq else 1
+
+def writetofile(filename, txt):
+	tmp = open(filename, 'w')
+	tmp.write(txt)
+	tmp.close()
 
 valuedesc = lambda x,y:y[1]-x[1]
 
