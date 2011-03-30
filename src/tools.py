@@ -145,6 +145,12 @@ def writetofile(filename, txt):
 	tmp.write(txt)
 	tmp.close()
 
+def loadandeval(filename):
+	tmp = open(filename, 'r')
+	txt = tmp.read()
+	tmp.close()
+	return eval(txt)
+
 valuedesc = lambda x,y:y[1]-x[1]
 
 def printdict(d):

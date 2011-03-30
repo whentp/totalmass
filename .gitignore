@@ -1,2 +1,3 @@
 *.pyc
-src/laji/*.*
+*.lib
+src/laji/*
