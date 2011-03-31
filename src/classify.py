@@ -43,6 +43,11 @@ for filename, tag in filenames.items():
 print len(files)
 ppppp()
 
+<<<<<<< HEAD
+=======
+colors = {'1': "'b'", '2': "'r'"}
+
+>>>>>>> 064a4349ee708228237616a09dbe49d16b878a4a
 for f in files:
 	t =  filter(lambda x: x[0] in topwords, getverticle(f['sentences'], wordfreq).items())
 	m_v = sum(map(lambda x: x[1], t)) / len(t)
