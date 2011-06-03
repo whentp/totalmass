@@ -69,3 +69,5 @@ def gethorizontalposition(tmp_result):
 		result[k] = v[0] / v[1]
 	return result
 
+def divideby(tmp):
+	return tmp if tmp !=0 else 1
