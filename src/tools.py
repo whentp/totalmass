@@ -156,3 +156,20 @@ valuedesc = lambda x,y:y[1]-x[1]
 def printdict(d):
 	for k,v in d.items():
 		print k, '->', v
+
+def gettopitems(wordlist, rate):
+	"""
+	wordlist: sorted [[word, freq], ...]
+	rate: a float number [0.0 ... 1.0]
+	"""
+	tmp = map(lambda x: x[1], wordlist)
+	total = sum(tmp)
+	if total == 0:
+		return []
+	tmpint = int(total * rate)
+	offset = 0
+	checkit = 0
+	while checkit < tmpint:
+		checkit += tmp[offset]
+		offset += 1
+	return wordlist[:offset]
