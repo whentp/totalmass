@@ -5,36 +5,54 @@ from verticle 	import *
 from intimacy 	import *
 from math 	import *
 
+filenames = {
+		'network.txt': 3,
+		'cnn.com-us.txt':4,
+		'telegraph.co.uk.txt':3,
+		'telegraph.co.uk.spaceseparated.txt':3,
+		'guardian.co.uk-china.txt':3,
+		'guardian.co.uk-integrated.txt':3,
+		'xinhuanet.com-china.txt':5,
+		#'spain.txt':3,'france.txt':2,
+		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
+		#'fyp.txt': ,
+		#'fyp-cs.txt': 1,
+		#'novel1.txt': 1,
+		#'novel5.txt': 1,
+		#'novel4.txt': 1,
+		}
+
+rawtext = ' \n '.join(map(lambda x: loadrawtextfile('test_data/'+x), filenames.keys()))
+sentencelist = getsentencelist(rawtext)
+
+wordfreq = countwords(getwordlist(rawtext), 1)
+#writetofile('wordfreq.lib', repr(wordfreq))
+
+wordintimacy = getintimacy(sentencelist, wordfreq)
+writetofile('wordintimacy.lib', repr(wordintimacy))
+
+result = {}
+for tmp in sentencelist:
+	appendhorizontalposition_norepeat(tmp, result)
+wordhorizontal = gethorizontalposition(result)
+#writetofile('wordhorizontal.lib', repr(wordhorizontal))
+
+wordverticle = getverticle(sentencelist, wordfreq)
+writetofile('wordverticle.lib', repr(wordverticle))
+
 wordfreq = loadandeval('wordfreq.lib')
 topwords = wordfreq.items()
 topwords.sort(valuedesc)
 #topwords = dict(topwords[:int(len(topwords)/30)])
-#topwords = dict(gettopitems(topwords, 0.999999))
+topwords = dict(gettopitems(topwords, 0.7))
 
 # use all.
-topwords = dict(topwords)
+#topwords = dict(topwords)
 
 #printpairs(topwords)
 #quit()
 
-wordhorizontal = loadandeval('wordhorizontal.lib')
-
-filenames = {
-		#'network.txt': 2,
-		#'cnn.com-us.txt':4,
-		#'telegraph.co.uk.txt':3,
-		#'telegraph.co.uk.spaceseparated.txt':'4',
-		'guardian.co.uk-china.txt':2,
-		#'guardian.co.uk-integrated.txt':5,
-		'xinhuanet.com-china.txt':2,
-		'spain.txt':3,'france.txt':1,
-		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
-		'fyp.txt': 3,
-		'fyp-cs.txt': 3,
-		'novel1.txt': 5,
-		'novel5.txt': 5,
-		'novel4.txt': 5,
-		}
+#wordhorizontal = loadandeval('wordhorizontal.lib')
 
 # read files
 files = []

@@ -9,7 +9,10 @@ wordfreq = loadandeval('wordfreq.lib')
 topwords = wordfreq.items()
 topwords.sort(valuedesc)
 #topwords = dict(topwords[:int(len(topwords)/30)])
-topwords = dict(gettopitems(topwords, 0.6))
+#topwords = dict(gettopitems(topwords, 0.999999))
+
+# use all.
+topwords = dict(topwords)
 
 #printpairs(topwords)
 #quit()
@@ -22,15 +25,15 @@ filenames = {
 		#'telegraph.co.uk.txt':3,
 		#'telegraph.co.uk.spaceseparated.txt':'4',
 		'guardian.co.uk-china.txt':2,
-		'guardian.co.uk.txt':2,
+		#'guardian.co.uk-integrated.txt':5,
 		'xinhuanet.com-china.txt':2,
-		#'spain.txt':3,'france.txt':1,
+		'spain.txt':3,'france.txt':1,
 		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
 		'fyp.txt': 3,
 		'fyp-cs.txt': 3,
 		'novel1.txt': 5,
-		'novel2.txt': 6,
-		'novel3.txt': 4,
+		'novel5.txt': 5,
+		'novel4.txt': 5,
 		}
 
 # read files
