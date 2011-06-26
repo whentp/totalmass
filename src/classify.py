@@ -21,9 +21,12 @@ filenames = {
 		'6.txt': 1,
 		'7.txt': 1,
 		'network.txt': 2,
-		'ni1.txt': 3,
-		'ni2.txt': 3,
-		'ni3.txt': 3
+		#'ma.txt': 3,
+		#'m1.txt': 3,
+		#'m2.txt': 3,
+		#'m3.txt': 3,
+		#'m4.txt': 3,
+		'm6.txt': 3
 		}
 
 # read files
