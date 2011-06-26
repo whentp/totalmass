@@ -59,8 +59,10 @@ for f in files:
 	t =  filter(lambda x: x[0] in topwords, getverticle(f['sentences'], wordfreq).items())
 	
 	# divideby 
+	# This feature is adopted.
 	m_v = sum(map(lambda x: x[1], t)) / divideby(len(t))
 
+	# horizontal position is useless.
 	result = {}
 	for tmp in f['sentences']:
 		appendhorizontalposition(tmp, result)
@@ -69,6 +71,7 @@ for f in files:
 				gethorizontalposition(result).items()))
 	m_h = sum(res) / divideby(len(res))
 
+	# This feature is adopted.
 	t = getintimacy(f['sentences'], wordfreq).items()
 	m_i = sum(map(lambda x: abs(x[1]), t)) / divideby(len(t))
 	
