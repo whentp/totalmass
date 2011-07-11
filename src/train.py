@@ -26,7 +26,7 @@ filenames = [
 		]
 
 #filenames = ['network.txt', 'novel1.txt', 'novel2.txt', 'novel3.txt', 'raw.txt','cnn.com-us.txt','telegraph.co.uk.txt']
-filenames = ['network.txt', 'novel1.txt', 'novel2.txt', 'novel3.txt']#, 'raw.txt','cnn.com-us.txt','telegraph.co.uk.txt']
+filenames = ['network.txt', 'novel1.txt', 'novel2.txt', 'novel3.txt', 'gone with-the-wind.txt', 'aesop-s-fables.txt', 'andersen-s-fairy-tales.txt']#, 'raw.txt','cnn.com-us.txt','telegraph.co.uk.txt']
 
 #Load files
 rawtext = ' \n '.join(map(lambda x: loadrawtextfile('test_data/'+x), filenames))

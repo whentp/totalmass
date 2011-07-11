@@ -22,9 +22,9 @@ wordhorizontal = loadandeval('wordhorizontal.lib')
 filenames = {
 		#'network.txt': 2,
 		#'cnn.com-us.txt':1,
-		'telegraph.co.uk.txt':2,
+		'telegraph.co.uk.txt':3,
 		'guardian.co.uk-china.txt':3, 'guardian.co.uk-integrated.txt':3,
-		'xinhuanet.com-china.txt':1,
+		'xinhuanet.com-china.txt':4,
 		#'spain.txt':3,'france.txt':1,
 		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
 		#'fyp.txt': 3,
@@ -46,9 +46,9 @@ for filename, tag in filenames.items():
 		tmpsentencelist = getsentencelist(t);
 		while(1):
 			t = len(tmpsentencelist)
-			if t > 20:
-				t = 20
-			if t < 20:
+			if t > 10:
+				t = 10
+			if t < 10:
 				break
 			head, tails = tmpsentencelist[:t-1], tmpsentencelist[t:]
 			files.append({
