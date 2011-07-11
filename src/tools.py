@@ -1,11 +1,5 @@
 import re
-
-cutter = re.compile(r"""[a-z0-9\-|']+""", re.I|re.U|re.M)
-spliter = re.compile(r"""\.|!|\?|;""", re.I|re.U|re.M)
-stripnumber_re = re.compile(r"""[0-9]+(\.[0-9]+)?""", re.I|re.U|re.M)
-
-def stripnumber(str):
-	return stripnumber_re.sub(' nn ', str)
+from tokenize import *
 
 def countwords(x, weight = 1.0):
 	result = {}
@@ -71,12 +65,6 @@ def loadrawtextfile(filename):
 	This function replace all numbers to nn and strip all "|" 
 	"""
 	return stripnumber(open(filename,'r').read().strip().lower().replace('|',' '))
-
-def getwordlist(tmpstr):
-	return cutter.findall(tmpstr)
-
-def getsentencelist(tmpfile):
-	return filter(lambda y:len(y)>0, map(lambda x: cutter.findall(x), spliter.split(tmpfile)))
 
 def splitpairwithvalue(pairlist):
 	"""

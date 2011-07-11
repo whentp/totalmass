@@ -9,10 +9,10 @@ wordfreq = loadandeval('wordfreq.lib')
 topwords = wordfreq.items()
 topwords.sort(valuedesc)
 #topwords = dict(topwords[:int(len(topwords)/30)])
-#topwords = dict(gettopitems(topwords, 0.999999))
+topwords = dict(gettopitems(topwords, 0.7))
 
 # use all.
-topwords = dict(topwords)
+#topwords = dict(topwords)
 
 #printpairs(topwords)
 #quit()
@@ -21,19 +21,17 @@ wordhorizontal = loadandeval('wordhorizontal.lib')
 
 filenames = {
 		#'network.txt': 2,
-		#'cnn.com-us.txt':4,
-		#'telegraph.co.uk.txt':3,
-		#'telegraph.co.uk.spaceseparated.txt':'4',
-		'guardian.co.uk-china.txt':2,
-		#'guardian.co.uk-integrated.txt':5,
-		'xinhuanet.com-china.txt':2,
-		'spain.txt':3,'france.txt':1,
+		#'cnn.com-us.txt':1,
+		'telegraph.co.uk.txt':2,
+		'guardian.co.uk-china.txt':3, 'guardian.co.uk-integrated.txt':3,
+		'xinhuanet.com-china.txt':1,
+		#'spain.txt':3,'france.txt':1,
 		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
-		'fyp.txt': 3,
-		'fyp-cs.txt': 3,
-		'novel1.txt': 5,
-		'novel5.txt': 5,
-		'novel4.txt': 5,
+		#'fyp.txt': 3,
+		#'fyp-cs.txt': 3,
+		#'novel1.txt': 5,
+		#'novel5.txt': 5,
+		#'novel4.txt': 5,
 		}
 
 # read files
@@ -42,15 +40,15 @@ for filename, tag in filenames.items():
 	raw = open('test_data/' + filename, 'r')
 	txt = filter(lambda x: len(x) > 0,
 			map(lambda x: x.strip(), 
-				raw.read().replace('\r', '\n').split('\n\n\n\n')))
+				raw.read().replace('\r', '\n').split('\n\n\n\naaaaaaaaaaaaaaaaaaaaaaaaaaa')))
 	for t in txt:
 
 		tmpsentencelist = getsentencelist(t);
 		while(1):
 			t = len(tmpsentencelist)
-			if t > 10:
-				t = 10
-			if t < 2:
+			if t > 20:
+				t = 20
+			if t < 20:
 				break
 			head, tails = tmpsentencelist[:t-1], tmpsentencelist[t:]
 			files.append({

@@ -6,20 +6,34 @@ from intimacy 	import *
 from math 	import *
 
 filenames = {
-		'network.txt': 3,
-		'cnn.com-us.txt':4,
-		'telegraph.co.uk.txt':3,
-		'telegraph.co.uk.spaceseparated.txt':3,
-		'guardian.co.uk-china.txt':3,
-		'guardian.co.uk-integrated.txt':3,
-		'xinhuanet.com-china.txt':5,
+		'network.txt': 2,
+		'cnn.com-us.txt':2,
+		'telegraph.co.uk.txt':2,
+		'telegraph.co.uk.spaceseparated.txt':2,
+		'guardian.co.uk-china.txt':2,
+		'guardian.co.uk-integrated.txt':2,
+		'xinhuanet.com-china.txt':3,
 		#'spain.txt':3,'france.txt':2,
 		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
-		#'fyp.txt': ,
-		#'fyp-cs.txt': 1,
-		#'novel1.txt': 1,
-		#'novel5.txt': 1,
-		#'novel4.txt': 1,
+		'fyp.txt': 5,
+		'fyp-cs.txt': 5,
+		'novel1.txt': 6,
+		'novel5.txt': 6,
+		'novel4.txt': 6,
+		}
+
+filenames = {
+		#'network.txt': 2,
+		'cnn.com-us.txt':4,
+		'telegraph.co.uk.txt':3,
+		#'telegraph.co.uk.spaceseparated.txt':3,
+		'guardian.co.uk-china.txt':2,
+		'guardian.co.uk-integrated.txt':2,
+		'xinhuanet.com-china.txt':1,
+		#'spain.txt':3,'france.txt':2,
+		#'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
+		#'fyp.txt': 5,'fyp-cs.txt': 5,
+		'novel1.txt': 6,'novel5.txt': 6,'novel4.txt': 6,
 		}
 
 rawtext = ' \n '.join(map(lambda x: loadrawtextfile('test_data/'+x), filenames.keys()))
@@ -29,7 +43,7 @@ wordfreq = countwords(getwordlist(rawtext), 1)
 #writetofile('wordfreq.lib', repr(wordfreq))
 
 wordintimacy = getintimacy(sentencelist, wordfreq)
-writetofile('wordintimacy.lib', repr(wordintimacy))
+#writetofile('wordintimacy.lib', repr(wordintimacy))
 
 result = {}
 for tmp in sentencelist:
@@ -38,17 +52,19 @@ wordhorizontal = gethorizontalposition(result)
 #writetofile('wordhorizontal.lib', repr(wordhorizontal))
 
 wordverticle = getverticle(sentencelist, wordfreq)
-writetofile('wordverticle.lib', repr(wordverticle))
+#writetofile('wordverticle.lib', repr(wordverticle))
 
-wordfreq = loadandeval('wordfreq.lib')
+#wordfreq = loadandeval('wordfreq.lib')
 topwords = wordfreq.items()
 topwords.sort(valuedesc)
 #topwords = dict(topwords[:int(len(topwords)/30)])
-topwords = dict(gettopitems(topwords, 0.7))
+
+#topwords = dict(gettopitems(topwords, 0.50))
 
 # use all.
-#topwords = dict(topwords)
+topwords = dict(topwords)
 
+#gettopitems(topwords, 0.50)
 #printpairs(topwords)
 #quit()
 
@@ -60,15 +76,15 @@ for filename, tag in filenames.items():
 	raw = open('test_data/' + filename, 'r')
 	txt = filter(lambda x: len(x) > 0,
 			map(lambda x: x.strip(), 
-				raw.read().replace('\r', '\n').split('\n\n\n\n')))
+				raw.read().replace('\r', '\n').split('\n\n\n\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')))
 	for t in txt:
 
 		tmpsentencelist = getsentencelist(t);
 		while(1):
 			t = len(tmpsentencelist)
-			if t > 10:
-				t = 10
-			if t < 2:
+			if t > 20:
+				t = 20
+			if t < 20:
 				break
 			head, tails = tmpsentencelist[:t-1], tmpsentencelist[t:]
 			files.append({
