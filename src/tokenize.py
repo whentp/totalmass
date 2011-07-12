@@ -2,7 +2,7 @@
 import re
 
 # for cutting words.
-cutter = re.compile(r"""[a-z0-9\-|,']+""", re.I|re.U|re.M)
+cutter = re.compile(r"""[a-z0-9\-|,'"]+""", re.I|re.U|re.M)
 
 # for spliting sentences.
 spliter = re.compile(r"""\.|!|\?|;""", re.I|re.U|re.M)
@@ -15,7 +15,8 @@ a_punctuations = [
 		('’',"""'"""),
 		('，',','),
 		(',',' , '),
-		("""'""",""" ' """)
+		(""" '""",""" ' """),
+		('"', ' " ')
 		]
 
 def stripnumber(tmpstr):

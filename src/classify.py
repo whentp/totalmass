@@ -18,15 +18,15 @@ topwords = dict(gettopitems(topwords, 0.7))
 #quit()
 
 wordhorizontal = loadandeval('wordhorizontal.lib')
-
+wordintimacy = loadandeval('wordintimacy.lib')
 filenames = {
 		#'network.txt': 2,
-		#'cnn.com-us.txt':1,
-		'telegraph.co.uk.txt':3,
-		'guardian.co.uk-china.txt':3, 'guardian.co.uk-integrated.txt':3,
-		'xinhuanet.com-china.txt':4,
+		'cnn.com-us.txt':1,
+		'telegraph.co.uk.txt':1,
+		'guardian.co.uk-china.txt':1, 'guardian.co.uk-integrated.txt':1,
+		'xinhuanet.com-china.txt':3,
 		#'spain.txt':3,'france.txt':1,
-		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
+		#'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
 		#'fyp.txt': 3,
 		#'fyp-cs.txt': 3,
 		#'novel1.txt': 5,
@@ -35,6 +35,10 @@ filenames = {
 		}
 
 # read files
+
+
+
+
 files = []
 for filename, tag in filenames.items():
 	raw = open('test_data/' + filename, 'r')
@@ -42,7 +46,6 @@ for filename, tag in filenames.items():
 			map(lambda x: x.strip(), 
 				raw.read().replace('\r', '\n').split('\n\n\n\naaaaaaaaaaaaaaaaaaaaaaaaaaa')))
 	for t in txt:
-
 		tmpsentencelist = getsentencelist(t);
 		while(1):
 			t = len(tmpsentencelist)
@@ -65,23 +68,29 @@ print "a=["
 
 for f in files:
 	t =  filter(lambda x: x[0] in topwords, getverticle(f['sentences'], wordfreq).items())
+	#t =  getverticle(f['sentences'], wordfreq).items()
 	
 	# divideby 
 	# This feature is adopted.
 	m_v = sum(map(lambda x: x[1], t)) / divideby(len(t))
 
 	# horizontal position is useless.
-	result = {}
-	for tmp in f['sentences']:
-		appendhorizontalposition(tmp, result)
-	res = map(lambda x: abs(x[1] - wordhorizontal[x[0]]),
-			filter(lambda x: x[0] in wordhorizontal, 
-				gethorizontalposition(result).items()))
-	m_h = sum(res) / divideby(len(res))
+	#result = {}
+	#for tmp in f['sentences']:
+	#	appendhorizontalposition(tmp, result)
+	#res = map(lambda x: abs(x[1] - wordhorizontal[x[0]]),
+	#		filter(lambda x: x[0] in wordhorizontal, 
+	#			gethorizontalposition(result).items()))
+	#m_h = sum(res) / divideby(len(res))
 
 	# This feature is adopted.
 	t = getintimacy(f['sentences'], wordfreq).items()
 	m_i = sum(map(lambda x: abs(x[1]), t)) / divideby(len(t))
+	
+	#t = filter(lambda x: x[0] in wordintimacy, t)
+	#printpairs(map(lambda x: [x[0], x[1] - wordintimacy[x[0]]], t))
+
+	#m_i = sum(map(lambda x: x[1] - wordintimacy[x[0]], t)) / divideby(len(t))
 	
 	#print m_v, ' ', m_i, ' ',  f['tag'], ';'
 	print m_v, ' ', ' ', m_i, ' ',  f['tag'], ';'

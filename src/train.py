@@ -16,7 +16,7 @@ filenames = [
 		'guardian.co.uk.txt',
 		'xinhuanet.com-china.txt',
 		#'spain.txt':3,'france.txt':1,
-		'1.txt', '2.txt', '3.txt', '4.txt', '5.txt', '6.txt', '7.txt',
+		#'1.txt', '2.txt', '3.txt', '4.txt', '5.txt', '6.txt', '7.txt',
 		'fyp.txt',
 		'fyp-cs.txt',
 		#'novel1.txt',

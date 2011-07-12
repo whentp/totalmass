@@ -2,15 +2,16 @@
 from tools import *
 import math
 
+steps = (30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+
 def getintimacy(sentencelist, wordfreq):
 	p_forward = {}
 	p_backward = {}
 
-	steps = (10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
 	for x in sentencelist:
 		for cc in steps:
-			addpairwithvalue(x, cc, math.exp(- ((cc)**2) / 2), p_forward)
-			addreversedpairwithvalue(x, cc, math.exp(- ((cc)**2) / 2), p_backward)
+			addpairwithvalue(x, cc, math.exp(- ((cc - 0)**2) / 2), p_forward)
+			addreversedpairwithvalue(x, cc, math.exp(- ((cc - 0)**2) / 2), p_backward)
 
 	getpairwithprobability(p_forward, wordfreq)
 	getpairwithprobability(p_backward, wordfreq)
@@ -18,7 +19,7 @@ def getintimacy(sentencelist, wordfreq):
 	word_horizon = {}
 
 	for word1, tmp in p_forward.items():
-		p_total = 0
+		p_total = 0.0
 		for word2, p in tmp.items():
 			if (word2 in p_backward) and (word1 in p_backward[word2]):
 				p_total += p - p_backward[word2][word1]
