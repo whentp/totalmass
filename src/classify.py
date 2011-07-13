@@ -9,10 +9,10 @@ wordfreq = loadandeval('wordfreq.lib')
 topwords = wordfreq.items()
 topwords.sort(valuedesc)
 #topwords = dict(topwords[:int(len(topwords)/30)])
-topwords = dict(gettopitems(topwords, 0.7))
+topwords = dict(gettopitems(topwords, 0.8))
 
 # use all.
-#topwords = dict(topwords)
+#opwords = dict(topwords)
 
 #printpairs(topwords)
 #quit()
@@ -20,38 +20,38 @@ topwords = dict(gettopitems(topwords, 0.7))
 wordhorizontal = loadandeval('wordhorizontal.lib')
 wordintimacy = loadandeval('wordintimacy.lib')
 filenames = {
-		#'network.txt': 2,
-		'cnn.com-us.txt':1,
-		'telegraph.co.uk.txt':1,
-		'guardian.co.uk-china.txt':1, 'guardian.co.uk-integrated.txt':1,
+		'network.txt': 2,
+		'cnn.com-us.txt':2,
+		'telegraph.co.uk.txt':2,
+		'guardian.co.uk-china.txt':2, 'guardian.co.uk-integrated.txt':2,
 		'xinhuanet.com-china.txt':3,
-		#'spain.txt':3,'france.txt':1,
-		#'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
-		#'fyp.txt': 3,
-		#'fyp-cs.txt': 3,
-		#'novel1.txt': 5,
-		#'novel5.txt': 5,
-		#'novel4.txt': 5,
+		#'spain.txt':4,'france.txt':4,
+		'1.txt': 1, '2.txt': 1, '3.txt': 1, '4.txt': 1, '5.txt': 1, '6.txt': 1, '7.txt': 1,
+		'fyp.txt': 6,
+		'fyp-cs.txt': 6,
+		#'xulu.txt': 5
+		'novel1.txt': 5,'novel2.txt': 5,
+		#'andersen-s-fairy-tales.txt': 6
 		}
 
 # read files
 
 
-
+sentencecount = 20
 
 files = []
 for filename, tag in filenames.items():
 	raw = open('test_data/' + filename, 'r')
 	txt = filter(lambda x: len(x) > 0,
 			map(lambda x: x.strip(), 
-				raw.read().replace('\r', '\n').split('\n\n\n\naaaaaaaaaaaaaaaaaaaaaaaaaaa')))
+				raw.read().replace('\r', '\n').replace('\n', ' ').split('\n\n\n\naaaaaaaaaaaaaaaaaaaaaaaaaaa')))
 	for t in txt:
 		tmpsentencelist = getsentencelist(t);
 		while(1):
 			t = len(tmpsentencelist)
-			if t > 10:
-				t = 10
-			if t < 10:
+			if t > sentencecount:
+				t = sentencecount
+			if t < sentencecount:
 				break
 			head, tails = tmpsentencelist[:t-1], tmpsentencelist[t:]
 			files.append({
@@ -85,7 +85,7 @@ for f in files:
 
 	# This feature is adopted.
 	t = getintimacy(f['sentences'], wordfreq).items()
-	m_i = sum(map(lambda x: abs(x[1]), t)) / divideby(len(t))
+	m_i = sum(map(lambda x: x[1], t)) / divideby(len(t))
 	
 	#t = filter(lambda x: x[0] in wordintimacy, t)
 	#printpairs(map(lambda x: [x[0], x[1] - wordintimacy[x[0]]], t))

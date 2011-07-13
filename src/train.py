@@ -17,8 +17,8 @@ filenames = [
 		'xinhuanet.com-china.txt',
 		#'spain.txt':3,'france.txt':1,
 		#'1.txt', '2.txt', '3.txt', '4.txt', '5.txt', '6.txt', '7.txt',
-		'fyp.txt',
-		'fyp-cs.txt',
+		#'fyp.txt',
+		#'fyp-cs.txt',
 		#'novel1.txt',
 		#'novel2.txt',
 		#'novel3.txt',
@@ -26,10 +26,13 @@ filenames = [
 		]
 
 #filenames = ['network.txt', 'novel1.txt', 'novel2.txt', 'novel3.txt', 'raw.txt','cnn.com-us.txt','telegraph.co.uk.txt']
-filenames = ['network.txt', 'novel1.txt', 'novel2.txt', 'novel3.txt', 'gone with-the-wind.txt', 'aesop-s-fables.txt', 'andersen-s-fairy-tales.txt']#, 'raw.txt','cnn.com-us.txt','telegraph.co.uk.txt']
+filenames = ['novel4.txt', 'gone-with-the-wind.txt', 'aesop-s-fables.txt', 'andersen-s-fairy-tales.txt']#, 'raw.txt','cnn.com-us.txt','telegraph.co.uk.txt']
+#filenames = ['andersen-s-fairy-tales.txt']
+
+#filenames = ['gone-with-the-wind.txt']
 
 #Load files
-rawtext = ' \n '.join(map(lambda x: loadrawtextfile('test_data/'+x), filenames))
+rawtext = ' \n '.join(map(lambda x: loadrawtextfile('test_data/'+x).lower(), filenames))
 sentencelist = getsentencelist(rawtext)
 
 wordfreq = countwords(getwordlist(rawtext), 1)

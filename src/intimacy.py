@@ -2,22 +2,35 @@
 from tools import *
 import math
 
-steps = (30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+intimacy_steps = (30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
 
-def getintimacy(sentencelist, wordfreq):
-	p_forward = {}
-	p_backward = {}
+def getpairwithprobability(result, wordfreq):
+	for k, tmp in result.items():
+		factor = 1.0 / getwordfreq(wordfreq, k)
+		for kk, vv in tmp.items():
+			result[k][kk] = vv * factor
 
+def getpairwithprobability_test(result, wordfreq):
+	for k, tmp in result.items():
+		for kk, vv in tmp.items():
+			factor = 1.0 / getwordfreq(wordfreq, kk)
+			result[k][kk] = vv * factor
+
+def getpairprobability(sentencelist, wordfreq, p_forward, p_backward):
 	for x in sentencelist:
-		for cc in steps:
+		for cc in intimacy_steps:
 			addpairwithvalue(x, cc, math.exp(- ((cc - 0)**2) / 2), p_forward)
 			addreversedpairwithvalue(x, cc, math.exp(- ((cc - 0)**2) / 2), p_backward)
 
 	getpairwithprobability(p_forward, wordfreq)
 	getpairwithprobability(p_backward, wordfreq)
 
-	word_horizon = {}
 
+def getintimacy(sentencelist, wordfreq):
+	p_forward = {}
+	p_backward = {}
+	getpairprobability(sentencelist, wordfreq, p_forward, p_backward)
+	word_horizon = {}
 	for word1, tmp in p_forward.items():
 		p_total = 0.0
 		for word2, p in tmp.items():

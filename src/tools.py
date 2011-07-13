@@ -64,7 +64,7 @@ def loadrawtextfile(filename):
 	"""
 	This function replace all numbers to nn and strip all "|" 
 	"""
-	return stripnumber(open(filename,'r').read().strip().lower().replace('|',' '))
+	return open(filename,'r').read().strip().replace('|',' ')
 
 def splitpairwithvalue(pairlist):
 	"""
@@ -118,12 +118,6 @@ def addreversedpairwithvalue(sentence, step, value, result):
 			result[word1][word2] = value
 		else:
 			result[word1][word2] += value
-
-def getpairwithprobability(result, wordfreq):
-	for k, tmp in result.items():
-		factor = 1.0 / getwordfreq(wordfreq, k)
-		for kk, vv in tmp.items():
-			result[k][kk] = vv * factor
 
 def getwordfreq(wordfreq, key):
 	return wordfreq[key] if key in wordfreq else 1
